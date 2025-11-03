@@ -1,0 +1,106 @@
+.leftRightFlex{
+    display:flex;
+   
+}
+
+.left-section{
+    height: 100%;
+    flex:2;
+
+}
+.right-section{
+  flex: 0 0 50%; /* 50% width */
+  display: flex; 
+  background-color: #1e1f26;
+  color: white;
+  padding: 10px;
+  box-sizing: border-box;
+  border-left: 2px solid black;
+    
+}
+
+.SessionBox{
+    display: flex;
+    flex-direction: column;
+    background-color: #343541;
+    min-width: 400px;
+    min-height: 600px;
+}
+
+.SessionBox > * {
+  background-color: #343541; 
+  margin: 5px;
+  padding: 10px;
+  
+}
+
+.exerciseForm{
+    display: flex;           
+    flex-direction: row;    
+    flex-wrap: nowrap;               
+    align-items: center;
+    gap: 4px; 
+    margin-top: auto;
+
+}
+
+.exerciseStack{
+  display:flex;
+  flex-direction: column;
+  min-height: 300px;
+}
+
+.exerciseForm input,
+.exerciseForm button {
+    flex-shrink: 3;          
+    min-width: 20px;        
+    max-width: 150px;       
+}
+.ExerciseItem > * {
+  display:flex;
+  flex-shrink: 1;  /* allows children to shrink if necessary */
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;           
+  flex-wrap: wrap;   
+}
+
+.headerTitle {
+  text-align: center;       
+  color: #0892D0;           
+  margin-top: 5px;          
+  font-weight: bold;         
+}
+.Session{
+   flex: 0 0 80%; 
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  background-color: #343541;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.calendar {
+    height: 100%;
+    border: 2px solid black;
+  
+}
+
+
+.sessionLibrary{
+    border: 2px solid black;
+    background-color: #343541;
+    width: 100%;
+    padding: 5px;
+    font-size: 12px;
+
+
+}
+
+.divider{
+  border: none;          
+  height: 1px;           
+  margin: 20px 0;        
+  
+}
