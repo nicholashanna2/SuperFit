@@ -33,3 +33,10 @@
     background-color: yellow;
     font-weight: bold;
 }
+
+.button{
+    justify-content: center;
+    text-align: center;
+    background-color: darkcyan;
+    padding: 10px;
+}
