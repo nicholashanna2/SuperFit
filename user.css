@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #e0f2ff;
+  color: #333;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  background-color: #0077cc;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.navbar button {
+  background-color: #ffffff;
+  color: #0077cc;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navbar button:hover {
+  background-color: #cce4ff;
+}
+
+.container {
+  display: grid;
+  grid-template-areas:
+    "user-info"
+    "runner"
+    "subscription"
+    "faqs";
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+.user-info {
+  grid-area: user-info;
+  background-color: #cce4ff;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.runner-graphic {
+  grid-area: runner;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.runner-graphic img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.subscription {
+  grid-area: subscription;
+  background-color: #cce4ff;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.faqs {
+  grid-area: faqs;
+  background-color: #d9f4ff;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+h2 {
+  margin-top: 0;
+  color: #005fa3;
+}
+
+form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  background-color: #f7fbff;
+}
+
+#updateBtn {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#updateBtn:hover {
+  background-color: #005fa3;
+}

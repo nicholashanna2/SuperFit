@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SuperFit Dashboard</title>
+  <link rel="stylesheet" href="user.css" />
+</head>
+<body>
+  <nav
+      id="nav"
+      class="navbar navbar-expand-lg navbar-dark bg-primary justify-content-center"
+    >
+      <a class="navbar-brand" href="#">SuperFit</a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div
+        class="collapse navbar-collapse justify-content-center"
+        id="navbarNavAltMarkup"
+      >
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="#"
+            >Sessions <span class="sr-only">(current)</span></a
+          >
+          <a class="nav-item nav-link" href="Profile.html">Profile</a>
+          <a class="nav-item nav-link" href="Analytics.html">Analytics</a>
+        </div>
+      </div>
+  </nav>
+
+  <div class="container">
+    <div class="user-info">
+      <h2>User Information</h2>
+      <form id="userForm">
+        <label>Username:</label><input type="text" name="Username" />
+        <label>Email:</label><input type="email" name="Email" />
+        <label>Phone:</label><input type="tel" name="Phone" />
+        <label>Days Active:</label><input type="number" name="Days Active" />
+        <label>Weight:</label><input type="number" name="Weight" />
+        <label>Experience:</label><input type="text" name="Experience" />
+        <label>Review:</label><textarea name="Review"></textarea>
+        <label>Socials:</label><input type="text" name="Socials" />
+        <button type="button" id="updateBtn">Update Info</button>
+      </form>
+    </div>
+
+    <div class="runner-graphic">
+      <img src="Screenshot 2025-10-28 112945.png" alt="Running figure" />
+    </div>
+
+    <div class="subscription">
+      <h2>Subscription Plan</h2>
+      <p>Payment Info:</p>
+    </div>
+
+    <div class="faqs">
+      <h2>FAQs</h2>
+      <ul>
+        <li><strong>Cancel anytime?</strong> YES! You can cancel anytime with the SuperFit 100% satisfaction garuntee!</li>
+        <li><strong>Workout benefits?</strong> YES! Superfit allows for you to see the benfits of working out through your fitness journey!</li>
+        <li><strong>How do I track progress?</strong> Superfit graphing and data analytics allows you to see you prgress everyday!</li>
+        <li><strong>Recommend a friend?</strong> YES! Reviews and social media handles will be able to be updated consistently, and linked so your friends can see the SuperFit app!</li>
+      </ul>
+    </div>
+  </div>
+  <script src="user.js"></script>
+</body>
+</html>
