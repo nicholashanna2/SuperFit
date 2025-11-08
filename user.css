@@ -75,6 +75,10 @@ body {
   padding: 1.5rem;
   border-radius: 10px;
 }
+.navbar-brand{
+  padding-left:2%;
+}
+
 
 h2 {
   margin-top: 0;

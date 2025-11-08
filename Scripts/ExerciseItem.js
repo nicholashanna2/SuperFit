@@ -3,9 +3,12 @@ export class ExerciseItem extends HTMLElement {
     super();
   }
 
+
+
   connectedCallback() {
     // Read values from attributes
     const exerciseName = this.getAttribute('exercise-name') || "Unnamed";
+    const sets = this.getAttribute('sets') || "_________";
     const reps = this.getAttribute('reps') || "_________";
     const time = this.getAttribute('time') || "_________";
     const weight = this.getAttribute('weight') || "_________";
@@ -17,17 +20,36 @@ export class ExerciseItem extends HTMLElement {
       <span class="exercise-name">${exerciseName}</span>
     </div>
     <div class="exercise-field">
+      <div class="label">Sets</div>
+      <span contenteditable="true" class="exercise-sets">${sets}</span>
+    </div>
+    <div class="exercise-field">
       <div class="label">Reps</div>
-      <span class="exercise-reps">${reps}</span>
+      <span contenteditable="true" class="exercise-reps">${reps}</span>
     </div>
     <div class="exercise-field">
       <div class="label">Time</div>
-      <span class="exercise-time">${time}</span>
+      <span contenteditable="true" class="exercise-time">${time}</span>min
     </div>
     <div class="exercise-field">
       <div class="label">Weight</div>
-      <span class="exercise-weight">${weight}</span>
+      <span contenteditable="true" class="exercise-weight">${weight} </span>lb
     </div>
+
+
+    <div class="exercise-field">
+        <div class="label">Note</div>
+        <span contenteditable="true" class="exercise-note">______</span>
+      </div>
+       <div class="exercise-field">
+        <button class="pr">P. Record</button>
+      </div>
+
+      <div class="exercise-field">
+        <button class="deleteBtn">Remove</button>
+      </div>
+     
+    
   </div>
 `;
 
