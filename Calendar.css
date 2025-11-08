@@ -33,6 +33,12 @@
     background-color: yellow;
     font-weight: bold;
 }
+<<<<<<< HEAD
+.navbar-brand{
+  padding-left:2%;
+}
+
+=======
 
 .button{
     justify-content: center;
@@ -40,3 +46,4 @@
     background-color: darkcyan;
     padding: 10px;
 }
+>>>>>>> 6308192c2ecbca6d183d5764e4b0a68b5f2aaf04
