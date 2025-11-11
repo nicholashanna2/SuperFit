@@ -97,7 +97,7 @@ function main() {
      if (e.target.classList.contains('.pr')) {
       const exerciseItem = e.target.closest('exercise-item');
       if (exerciseItem) {
-        exerciseItem.loadPr();
+        search 
       }
     }
    

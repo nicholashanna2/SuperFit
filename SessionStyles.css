@@ -117,7 +117,7 @@
   font-weight: lighter;
 }
 .Session{
-  flex: 1 1 50%; 
+  flex: 1 1 80%; 
   display: flex;
   flex-direction: column;
   background-color: rgb(24, 23, 23);
@@ -497,5 +497,172 @@
   justify-content: center;
   align-items: center;
   gap :4px;
+}
+
+.monthPicker{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  width:100%;
+  background-color:  #3162f2;  
+  border-radius:3px;
+}
+
+.dayPicker{
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-type: x mandatory;
+  padding-top:0px;
+  
+}
+
+.currentDate{
+  border:1px solid #fff;
+  border-radius: 3px;
+  padding:10px;
+  padding-right:16px;
+  padding-left:16px;
+  margin:6px;
+  
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.6s ease; 
+  margin:10px;
+ 
+}
+
+.currentDate:hover{
+  transform:scale(110%);
+   background-color:cyan;
+  color:white;
+}
+
+.currentDayDate{
+  scroll-snap-align:center;
+}
+.horizontalDatePickerLayout{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  height:100%;
+ ;
+ 
+  
+}
+
+.prevMonthBtn{
+  display:flex;
+  width: 30px; 
+  height: 20px; 
+  background-color: white; 
+  text-align: center;
+  line-height: 50px; 
+  border: none;
+  cursor: pointer;
+ clip-path: polygon(100% 0%, 0% 50%, 100% 100%);
+ transition: background-color 0.3s ease; 
+ margin:10px;
+
+}
+
+.prevMonthBtn:hover{
+   background-color:cyan;
+  color:white;
+}
+
+
+.nextMonthBtn{
+  display:flex;
+  width: 30px; 
+  height: 20px; 
+  background-color: white; 
+  text-align: center;
+  line-height: 50px; 
+  border: none;
+  cursor: pointer;
+  clip-path: polygon(0% 0%, 100% 50%, 0% 100%); 
+  transition: background-color 0.3s ease; 
+  margin:10px;
+}
+
+.nextMonthBtn:hover{
+   background-color:cyan;
+  color:white;
+}
+
+.tab {
+  
+  border: 1px solid #010101;
+  background-color:  rgb(93, 96, 103);
+  align-content: end;
+  align-self: flex-end;
+  border-radius: 3px;
+    margin-left: auto; /* Push tabs all the way to the right */
+  
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 6px 8px;
+  transition: 0.3s;
+  border-radius: 3px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover { 
+  background-color:cyan;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+
+.clearBtn{
+  width: 10%;
+  height:100%;
+  background-color: #0892D0; 
+  border-style: hidden;
+ 
+  border-radius: 3px;
+  transition: background-color 0.3s ease; 
+  padding-top: 8px;
+  padding-bottom:8px;
+}
+
+.clearBtn:hover{
+  background-color:cyan;
+  color:white;
+  
+
+}
+
+.currentDayDate{
+  display:flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
 }
 

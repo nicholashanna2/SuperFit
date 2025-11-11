@@ -4,24 +4,17 @@ export class StopWatch  {
     this.elapsedSeconds = 0;
   }
       startTimer(){
-
         clearInterval(this.timerInterval);
-      
-
-
         const timer = document.querySelector(".timerDisplay");
         const hrEl = document.getElementById("hr");
         const minEl = document.getElementById("min");
         const secEl = document.getElementById("sec");
 
-
-        
         // Update timer every second
         this.timerInterval = setInterval(() => {
         this.elapsedSeconds++;
 
-        // Convert seconds to days, hours, minutes, seconds
-                    
+        // Convert seconds to days, hours, minutes, seconds             
         const hr = Math.floor((this.elapsedSeconds % (60 * 60 * 24)) / (60 * 60));
         const min = Math.floor((this.elapsedSeconds % (60 * 60)) / 60);
         const sec = this.elapsedSeconds % 60;
@@ -33,14 +26,10 @@ export class StopWatch  {
 
         }, 1000);
       }
-    
-
+  
       stopTimer(){
           clearInterval(this.timerInterval);
           this.timerInterval = 0;
-
-
-
       }
 
       resetTimer(){
@@ -50,10 +39,6 @@ export class StopWatch  {
           document.getElementById("sec").innerHTML = "00";
           document.getElementById("min").innerHTML = "00";
           document.getElementById("hr").innerHTML = "00";
-
-
-          
-
       }
       
 }

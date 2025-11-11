@@ -62,18 +62,23 @@
     <div class="right-section">
       <!-- main session container card -->
       <div class="Session">
-        
-          <div class="selectedDate"></div>
-          <div class="datesContainer">
-            <div class="month">
-              <div class="arrow prev-month"></div>
-              <div class="month-item"></div>
-              <div class="arrow next-month"></div>
-            </div>
-            <div class="days-container"></div>
-          </div>
-        
         <div class="sessionOutline">
+          <div class="horizontalDatePickerLayout">
+            <div class="monthPicker">
+              <button class="prevMonthBtn"></button>
+              <span class="monthLabel">Month</span>
+              <button class="nextMonthBtn"></button>
+            </div>
+            <div class="dayPicker">
+              <div class="currentDate">
+              <span class="currentDayLabel">day </span>
+              <span class="currentDayDate"> date</span>
+              </div>
+              
+              
+            </div>
+            
+          </div>
           <p class="headerTitle">Current Session</p>
           <div class="sessionTitle">
             <p class="status">Status:</p>
@@ -81,8 +86,23 @@
             <p id="Timer">
               <span class="timerGradient">0d 0h 0m 0s</span>
             </p>
-
-            <hr />
+            <div class="tab">
+              <button class="tablinks" onclick="openCity(event, 'London')">
+                Sessions
+              </button>
+              <button class="tablinks" onclick="openCity(event, 'London')">
+                Personal Records
+              </button>
+              <button class="tablinks" onclick="openCity(event, 'Paris')">
+                Circuits
+              </button>
+              <button class="tablinks" onclick="openCity(event, 'Tokyo')">
+                Timeline
+              </button>
+              <button class="tablinks" onclick="openCity(event, 'Tokyo')">
+                Custom Settings
+              </button>
+            </div>
           </div>
 
           <!-- Actual Session box that contains all exercise nodes/rows -->
@@ -131,7 +151,7 @@
                 placeholder="Weight (optional)"
               />
               <button class="addExerciseBtn" type="submit">Add Exercise</button>
-              <button class="autoWeightBtn">Auto Calculate</button>
+              <button class="clearBtn" type="submit">Clear</button>
             </form>
             <form>
               <div>
@@ -140,7 +160,6 @@
                 </button>
 
                 <hr />
-                <input type="date" class="formInput" />
                 <button class="saveSessionBtn" type="button">
                   Save Session
                 </button>
