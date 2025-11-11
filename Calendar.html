@@ -52,11 +52,16 @@
     </nav>
     <!-- end of header nav bar -->
 
-    <div class="calendar">
-      <div class="calendar-header">
-        <button id="prevMonth">&lt;</button>
-        <h2 id="monthYear"></h2>
-        <button id="nextMonth">&gt;</button>
+    <div class = "header">
+      <div class="calendar">
+        <div class="calendar-header">
+          <button id="prevMonth">&lt;</button>
+          <h2 id="monthYear"></h2>
+          <button id="nextMonth">&gt;</button>
+        </div>
+      </div>
+      <div class = "workout_button">
+        <button onclick = "workout()" class = "todays-workout"> Today's Workout</button>
       </div>
     </div>
     <div class="calendar-weekdays">
@@ -72,9 +77,14 @@
       <script src="Calendar.js"></script>
     </div>
     <button onclick="onClick()" class = 'workout button'>Workout with trainer</button>
-        <script>function onClick() {
-        alert('Waiting for the trainer');
-        }
-        </script>
+    <script>function onClick() {
+      alert('Waiting for the trainer');
+      }
+    </script>
+    <script>function workout() {
+      alert("Today's exercises: -pushups \n -plank")
+      }
+    </script>
+      
   </body>
 </html>
