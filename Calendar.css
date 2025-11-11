@@ -41,9 +41,18 @@
 =======
 
 .button{
-    justify-content: center;
+    float: right;
+    justify-content: flex-end;
     text-align: center;
     background-color: darkcyan;
     padding: 10px;
+}
+
+.todays-workout {
+    float: right;
+    position: relative;
+    top: -65px;
+    padding: 10px;
+    background-color: deeppink;
 }
 >>>>>>> 6308192c2ecbca6d183d5764e4b0a68b5f2aaf04
