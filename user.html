@@ -45,8 +45,7 @@
         <div class="navbar-nav">
           <a class="nav-item nav-link" href="Session.html">Sessions</a>
           <a class="nav-item nav-link active" href="#"
-            >Profile <span class="sr-only">(current)</span></a
-          >
+            >Profile <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="Graph.html">Analytics</a>
           <a class="nav-item nav-link" href="Calendar.html">Calender</a>
         </div>
@@ -69,14 +68,20 @@
         </form>
       </div>
 
-      <div class="runner-graphic">
-        <img src="Screenshot 2025-10-28 112945.png" alt="Running figure" />
-      </div>
-
       <div class="subscription">
         <h2>Subscription Plan</h2>
-        <p>Payment Info:</p>
+      <form id="paymentForm">
+        <label>Plan:</label><input type="text" name="plan" />
+        <label>Amount:</label><input type="number" name="amount" step="0.01" />
+        <label>Renewal Date:</label><input type="date" name="renewalDate" />
+        <label>Card Number:</label><input type="text" name="method" maxlength="19" />
+        <button type="button" id="updatePaymentBtn">Update Payment Info</button>
+      </form>
+
+      <div id="paymentInfo">
+        <p>Loading payment details...</p>
       </div>
+    </div>
 
       <div class="faqs">
         <h2>FAQs</h2>
