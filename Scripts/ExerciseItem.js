@@ -12,6 +12,7 @@ export class ExerciseItem extends HTMLElement {
     const sets = this.getAttribute('sets') || "_________";
     const reps = this.getAttribute('reps') || "_________";
     const time = this.getAttribute('time') || "_________";
+    const exerciseTime = this.getAttribute("exerciseTime")||"00:00:00";
     const weight = this.getAttribute('weight') || "_________";
 
   this.innerHTML = `
@@ -44,7 +45,8 @@ export class ExerciseItem extends HTMLElement {
       </div>
       
       <div class="exercise-field">
-        <button id="completeBtn"">Complete</button>
+        <button class="completeBtn"">Start Exercise</button>
+        <span class ="exerciseTime">${exerciseTime}</span> 
       </div>
 
       <div class="exercise-field">

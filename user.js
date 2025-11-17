@@ -9,10 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (input) input.value = value;
   });
 
-  // Update only the customer-typed fields
-  updateBtn.addEventListener("click", () => {
+  //update customer info
+  document.getElementById("updateBtn").addEventListener("click", () => {
+    const form = document.getElementById("userForm");
     const inputs = form.querySelectorAll("input, textarea");
-    const updatedData = { ...savedData };
+    const updatedData = {};
 
     inputs.forEach(input => {
       if (input.value.trim() !== "") {
@@ -21,8 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     localStorage.setItem("superFitUser", JSON.stringify(updatedData));
-    alert("Your info has been updated!");
+    alert("User info updated!");
   });
+
   const paymentForm = document.getElementById("paymentForm");
   const updatePaymentBtn = document.getElementById("updatePaymentBtn");
   const paymentDisplay = document.getElementById("paymentInfo");

@@ -63,68 +63,32 @@
       <!-- main session container card -->
       <div class="Session">
         <div class="sessionOutline">
-          <div class="horizontalDatePickerLayout">
-            <div class="monthPicker">
-              <button class="prevMonthBtn"></button>
-              <span class="monthLabel">Month</span>
-              <button class="nextMonthBtn"></button>
-            </div>
-            <div class="dayPicker">
-              <div class="currentDate">
-              <span class="currentDayLabel">day </span>
-              <span class="currentDayDate"> date</span>
-              </div>
-               <div class="currentDate">
-              <span class="currentDayLabel">day </span>
-              <span class="currentDayDate"> date</span>
-              </div>
-               <div class="currentDate">
-              <span class="currentDayLabel">day </span>
-              <span class="currentDayDate"> date</span>
-              </div>
-               <div class="currentDate">
-              <span class="currentDayLabel">day </span>
-              <span class="currentDayDate"> date</span>
-              </div>
-               <div class="currentDate">
-              <span class="currentDayLabel">day </span>
-              <span class="currentDayDate"> date</span>
-              </div>
-               <div class="currentDate">
-              <span class="currentDayLabel">day </span>
-              <span class="currentDayDate"> date</span>
-              </div>
-               <div class="currentDate">
-              <span class="currentDayLabel">day </span>
-              <span class="currentDayDate"> date</span>
-              </div>
-              
-              
-              
-              
-              
-            </div>
-            
-          </div>
+          
          <div class="headerTitle">
           <div class="sessionInfo">
             <span class="sessionLabel">Current Session</span>
-            <span class="currentDateHeader">-current Date-</span>
-          </div>
-          <div class="headerButtons">
-            <button class="saveSessionBtn" type="button">Save Session</button>
-            <button class="deleteSessionBtn" type="submit">Delete Session</button>
-          </div>
-        </div>
-          
-          <div class="sessionTitle">
+             <div class="sessionTitle">
             <p class="status">Status:</p>
             <p class="statusField">Inactive</p>
             <p id="Timer">
               <span class="timerGradient">0d 0h 0m 0s</span>
             </p>
-           
+          
           </div>
+         
+          </div>
+          <div class="headerButtons">
+            <form class="sessionForm">
+              <input type="date" class="workout-date" name="workout-date" required>
+              <button class="saveSessionBtn" type="submit" required>
+                  Save Session
+              </button>
+            </form>
+            <button class="deleteSessionBtn" type = "button" > Delete Session</button>
+              </div>
+        </div>
+          
+         
 
           <!-- Actual Session box that contains all exercise nodes/rows -->
           <div class="SessionBox">
@@ -184,22 +148,36 @@
                
               </div>
             </form>
-          </div>
+            
+          </div>  
+        </div>
+         <button id="recommendBtn">Get My Auto-Recommended Workout</button>
+        <div id="recommendationBox">
+           <button class="closeBtn">&times;</button>
+            
         </div>
       </div>
       <!-- Exercise Library  -->
       <div class="sessionLibrary">
-        <p class="timerHeader">Exercise Library</p>
+       
+        <div class = "exerciseListCard">
+           <p class="timerHeader">Exercise Library</p>
         <div class="exerciseList">
           <div class="background">
-            <div class="exerciseLibraryItem">
-              
-       
-        </div>
-        <div class="timerContainer">
-          <div class="timerHeader">Timer</div>
+            
+        
+          </div>
+      </div>
+      </div>
+      <div class ="timerCard">
+       <div class="timerContainer">
+          <div class="timerHeader">Stop Watch</div>
           <div class="timerDisplay">
-            <div class="stopWatch"></div>
+           <div class="stopWatch">
+            <div class="ring hoursRing"></div>
+            <div class="ring minutesRing"></div>
+            <div class="ring secondsRing"></div>
+          </div>
 
             <div id="time" class="timeLabels">
               <span class="digit" id="hr"> 00</span>
@@ -216,10 +194,12 @@
             </div>
           </div>
         </div>
-      </div>
+        </div>
     </div>
-
+      <script src="Scripts/recommendation.js"></script>
     <script type="module" src="Scripts/app.js"></script>
     <script type="module" src="Scripts/StopWatch.js"></script>
-  </body>
+   
+
+  </body> 
 </html>

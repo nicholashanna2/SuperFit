@@ -3,6 +3,8 @@ import {SessionItem} from "./SessionItem.js";
 import {SessionList} from "./SessionList.js";
 import {StopWatch} from "./StopWatch.js";
 import { ExerciseLibraryList } from './ExerciseLibraryList.js';
+
+//get html elements
 const stackContainer = document.querySelector('.exerciseStack');
 const addExerciseBtn = document.querySelector('.addExerciseBtn');
 const deleteExerciseBtn = document.querySelector(".deleteBtn");
@@ -18,13 +20,24 @@ const deleteSessionBtn = document.getElementById("deleteSessionBtn");
 const timerStartBtn = document.querySelector(".timerStartBtn");
 const timerStopBtn = document.querySelector(".timerStopBtn");
 const timerResetBtn = document.querySelector(".timerResetBtn");
+const datePicker = document.querySelector('.workout-date');
 
-
+//initialize sessionslist, library list, and stopwatch
 const sessionList = new SessionList();
+const exerciseLibraryList = new ExerciseLibraryList();
 const stopWatch = new StopWatch(60);
+let activeState = false;
+
+
+
+//timer constants
 let timerInterval;
 let elapsedSeconds = 0;
 
+
+
+
+//main app
 function main() {
   timerStartBtn.addEventListener('click', (e) => {
   stopWatch.startTimer();
@@ -39,51 +52,61 @@ function main() {
 
 })
 
-  saveSessionBtn.addEventListener('click',(e)=>{
+  
+   saveSessionBtn.addEventListener('click',(e)=>{
     e.preventDefault();
-    const now = new Date();
-    const formattedDate = now.toISOString().split('T')[0]; 
-    const savedSession = new SessionItem(formattedDate);
-    alert(`Session saved for ${savedSession.sessionDate.toString()}`);
+
+    // Read the selected date from the datepicker
+    const selectedDate = document.querySelector('.workout-date').value;
+
+    if (!selectedDate) {
+        alert("Please select a date for your session.");
+        return;
+    }
+
+    const savedSession = new SessionItem(selectedDate);
+    alert(`Session saved for ${savedSession.sessionDate}`);
     sessionList.addSession(savedSession);
 
+    // ADD each exercise to library if missing
+    const allExercises = stackContainer.querySelectorAll("exercise-item");
 
+    allExercises.forEach((item) => {
+      const name = item.getAttribute("exercise-name");
 
-})
-
-
-function populateExerciseLibrary() {
-  const library = new ExerciseLibraryList();
-  const container = document.querySelector('.exerciseList');
-
-  // Clear any existing items
-  container.innerHTML = '';
-
-  // Loop through exercises and create elements
-  library.items.forEach((exerciseName) => {
-    const itemDiv = document.createElement('div');
-    itemDiv.classList.add('exerciseLibraryItem');
-
-    const nameDiv = document.createElement('div');
-    nameDiv.textContent = exerciseName;
-
-    const addBtn = document.createElement('button');
-    addBtn.classList.add('exerciseLibraryAddBtn');
-    addBtn.textContent = '+';
-
-    // Optional: attach click behavior for future functionality
-    addBtn.addEventListener('click', () => {
-      console.log(`Added ${exerciseName}`);
-      // You can handle adding the exercise to a workout plan here
+      if (!exerciseLibraryList.items.includes(name)) {
+        exerciseLibraryList.items.push(name);
+      }
     });
 
-    itemDiv.appendChild(nameDiv);
-    itemDiv.appendChild(addBtn);
+    populateExerciseLibrary();
+});
+  
 
-    container.appendChild(itemDiv);
-  });
-}
+ function populateExerciseLibrary() {
+    const container = document.querySelector('.exerciseList');
+    container.innerHTML = '';
 
+    exerciseLibraryList.items.forEach((exerciseName) => {
+      const itemDiv = document.createElement('div');
+      itemDiv.classList.add('exerciseLibraryItem');
+
+      const nameDiv = document.createElement('div');
+      nameDiv.textContent = exerciseName;
+
+      const addBtn = document.createElement('button');
+      addBtn.classList.add('exerciseLibraryAddBtn');
+      addBtn.textContent = '+';
+
+      addBtn.addEventListener('click', () => {
+        console.log(`Added ${exerciseName}`);
+      });
+
+      itemDiv.appendChild(nameDiv);
+      itemDiv.appendChild(addBtn);
+      container.appendChild(itemDiv);
+    });
+  }
 
   addExerciseBtn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -92,6 +115,7 @@ function populateExerciseLibrary() {
     const sets = exerciseForm.sets.value;
     const reps = exerciseForm.reps.value;
     const time = exerciseForm.time.value;
+    const exerciseTime = 0;
     const weight = exerciseForm.weight.value;
 
     // Check required fields
@@ -110,6 +134,7 @@ function populateExerciseLibrary() {
     exerciseItem.setAttribute('sets',sets);
     exerciseItem.setAttribute('reps', reps);
     exerciseItem.setAttribute('time', time);
+    exerciseItem.setAttribute("exerciseTime",exerciseTime);
     exerciseItem.setAttribute('weight', weight);
   
     // Add to stack
@@ -127,13 +152,21 @@ function populateExerciseLibrary() {
         if (confirmDelete) exerciseItem.remove();
       }
     }
-     if (e.target.classList.contains('.completeBtn')) {
+    if (e.target.classList.contains('completeBtn')) {
       const exerciseItem = e.target.closest('exercise-item');
-      if (exerciseItem) {
-        
-        
+      if (!exerciseItem) return;
+
+      const sessionIsActive = sessionBox.classList.contains("activeSession");
+      const btn = e.target;
+      
+      if(activeState == true){
+        btn.textContent = "Complete";
+
+      } else if (activeState == false){
+          btn.textContent = "Start Exercise";
       }
     }
+
    
   });
  
@@ -149,6 +182,7 @@ function populateExerciseLibrary() {
         timer.classList.add('activeSession');
         startBtn.textContent = "End Session";
         statusField.textContent = "Active"
+        activeState = true;
 
         
         // Reset counter
@@ -176,25 +210,26 @@ function populateExerciseLibrary() {
         timer.classList.remove('activeSession');
         startBtn.textContent = "Start Session";
         statusField.textContent = "Inactive"
+        activeState = false;
        
     }
   
 });
 
 
-deleteSessionBtn.addEventListener('click',(e)=>{
-    e.preventDefault(); // Prevent form submission or reload
-  const confirmDelete = confirm('Delete all exercises from this session?');
-  if (!confirmDelete) return;
-
-  // Clear all exercise items
-  stackContainer.innerHTML = '';
-})
-
-
 document.addEventListener('DOMContentLoaded', () => {
-  populateExerciseLibrary();
+  const stackContainer = document.querySelector('.exerciseStack');
+  const deleteSessionBtn = document.querySelector('.deleteSessionBtn');
+
+  deleteSessionBtn.addEventListener('click', () => {
+    const confirmDelete = confirm('Delete all exercises from this session?');
+    if (!confirmDelete) return;
+
+    // Clear only the session stack
+    stackContainer.innerHTML = '';
+  });
 });
+
 
 }
 

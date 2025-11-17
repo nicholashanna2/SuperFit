@@ -119,7 +119,7 @@ form select:focus {
 #updateBtn:hover,
 #updatePaymentBtn:hover {
   background-color: cyan;
-  color: black;
+  color: white;
 }
 
 
@@ -141,3 +141,4 @@ form select:focus {
   
 
 }
+
