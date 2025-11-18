@@ -78,18 +78,32 @@
       <div>Sat</div>
     </div>
     <div class="calendar-days" id="calendarDays">
-      <script src="Calendar.js"></script>
+      
     </div>
+    <script src="Calendar.js" type = "module"></script>
     <div class = "horzontalFlex">
     <div class="calendar-buttons horizontalFlex">
       <button onclick="onClick()" class="trainer-workout">Workout with trainer</button>
-     <button id ='workoutButton' class="todays-workout">Today's Workout</button>
+     
+     <button id="recommendBtn" class="trainer-workout">Recommend Workout</button>
     </div>
+    <!-- Recommend Workout Button -->
+
+
+<!-- Recommendation Popup -->
+<div id="recommendationBox" class="popup-container" style="display:none;">
+  <div class="popup-content">
+    <button class="closeBtn">&times;</button>
+    <div id="recommendationContent"></div>
+  </div>
+</div>
+
    
     <script>function onClick() {
       alert('Waiting for the trainer');
       }
     </script>
+
     
     </div>
       </div>

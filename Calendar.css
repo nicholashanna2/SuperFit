@@ -192,15 +192,75 @@
     margin-left:20%;
     margin-right:20%;
 }
-
-#popupcontainer {
+/* Right-side popup */
+.popup-container {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
+    top: 80px; /* distance from top */
+    right: 20px; /* distance from right edge */
+    width: 300px;
+    max-height: 80vh; /* scrollable if content is tall */
+    background-color: #252731; /* match calendar container */
     padding: 20px;
-    border: 1px solid #ccc;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    display: none; /* initially hidden */
+    flex-direction: column; /* flex layout */
+    gap: 10px;
+    overflow-y: auto;
     z-index: 1000;
+    animation: slideIn 0.3s ease forwards;
+    display: flex; /* make it a flex container */
+}
+
+/* Slide-in animation from the right */
+@keyframes slideIn {
+    from { transform: translateX(120%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Close button */
+.popup-container .closeBtn {
+    align-self: flex-end; /* position at top-right */
+    font-size: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #fff;
+    transition: color 0.2s;
+}
+
+.popup-container .closeBtn:hover {
+    color: #0892D0;
+}
+
+/* Popup header */
+.popup-container h3 {
+    margin: 0;
+    color: #0892D0;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* Exercises and notes container */
+.popup-content-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* space between items */
+}
+
+/* Individual exercise */
+.popup-content-flex p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.popup-content-flex p strong {
+    color: #00d4ff;
+}
+
+.popup-content-flex p em {
+    color: #a0a0a0;
+    font-size: 13px;
 }
