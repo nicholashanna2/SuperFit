@@ -171,3 +171,45 @@ canvas {
         margin: 5px;
     }
 }
+.input-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.input-bar .form-control {
+    background-color: #1e1f26;
+    color: white;
+    border: 1px solid rgba(105, 105, 105, 0.7);
+    border-radius: 3px;
+}
+
+.input-bar .form-control::placeholder {
+    color: #bbbbbb;
+}
+
+.btn-add-entry {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    font-weight: bold;
+    background-color: #0892D0;
+    color: white;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+}
+
+.btn-add-entry:hover {
+    background-color: cyan;
+    color: white;
+}
+
+@media (max-width: 700px) {
+    .input-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
