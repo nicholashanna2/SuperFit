@@ -68,9 +68,11 @@
     <!-- Main Content -->
     <main class="content">
       <!-- Left Panel -->
+            <!-- Left Panel -->
       <section class="panel panel-left">
         <div class="panel-header">
           <h2 id="graphTitle" class="panel-title">Progress Graph</h2>
+          <p id="dataStatus" class="data-status"></p>
 
           <!-- Time Range Dropdown -->
           <select id="timeRange" class="form-select time-range-select">
@@ -81,12 +83,36 @@
           </select>
         </div>
 
+        <!-- User Input Bar -->
+        <div class="input-bar">
+          <input
+            type="date"
+            id="dateInput"
+            class="form-control input-date"
+            aria-label="Date"
+          />
+          <input
+            type="number"
+            id="valueInput"
+            class="form-control input-value"
+            placeholder="Select a metric first"
+            aria-label="Value"
+            step="any"
+            min="0"
+          />
+          <button id="addEntry" class="btn-add-entry">
+            Add Entry
+          </button>
+        </div>
+
+
         <div class="graph-card">
           <canvas id="myLineChart"></canvas>
         </div>
 
         <button class="run-report">Run Report</button>
       </section>
+
 
       <!-- Right Panel -->
       <aside class="panel panel-right">
